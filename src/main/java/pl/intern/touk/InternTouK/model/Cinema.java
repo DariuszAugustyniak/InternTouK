@@ -1,13 +1,36 @@
 package pl.intern.touk.InternTouK.model;
 
-import java.util.ArrayList;
+import javax.persistence.*;
 import java.util.Collection;
+import java.util.List;
+import java.util.Objects;
 
+
+@Entity
+@Table(name = "cinema")
 public class Cinema {
 
+    @Id
     private String name;
-    private Collection<ScreeningRoom> rooms;
-    private Collection<Screening> screenings;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cinema")
+    private List<ScreeningRoom> rooms;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cinema")
+    private List<Screening> screenings;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Cinema)) return false;
+        Cinema cinema = (Cinema) o;
+        return Objects.equals(getName(), cinema.getName()) &&
+                Objects.equals(getRooms(), cinema.getRooms()) &&
+                Objects.equals(getScreenings(), cinema.getScreenings());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName(), getRooms(), getScreenings());
+    }
 
     public String getName() {
         return name;
@@ -17,19 +40,19 @@ public class Cinema {
         this.name = name;
     }
 
-    public Collection<ScreeningRoom> getRooms() {
+    public List<ScreeningRoom> getRooms() {
         return rooms;
     }
 
-    public void setRooms(Collection<ScreeningRoom> rooms) {
+    public void setRooms(List<ScreeningRoom> rooms) {
         this.rooms = rooms;
     }
 
-    public Collection<Screening> getScreenings() {
+    public List<Screening> getScreenings() {
         return screenings;
     }
 
-    public void setScreenings(Collection<Screening> screenings) {
+    public void setScreenings(List<Screening> screenings) {
         this.screenings = screenings;
     }
 }

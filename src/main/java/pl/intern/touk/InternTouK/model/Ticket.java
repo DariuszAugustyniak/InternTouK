@@ -1,17 +1,58 @@
 package pl.intern.touk.InternTouK.model;
 
-public class Ticket {
-    private String type;
+import javax.persistence.*;
+
+@Entity
+public class Ticket implements Cloneable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    private TicketType type;
     private Double price;
     private String name;
     private String surname;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "Ticket_ID")
+    private  Seat seat;
 
-    public String getType() {
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+
+    public Ticket() {
+    }
+
+    public Ticket(TicketType type, Double price, String name, String surname) {
+        this.type = type;
+        this.price = price;
+        this.name = name;
+        this.surname = surname;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Seat getSeat() {
+        return seat;
+    }
+
+    public void setSeat(Seat seat) {
+        this.seat = seat;
+    }
+
+    public TicketType getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(TicketType type) {
         this.type = type;
     }
 

@@ -11,7 +11,6 @@ import java.util.List;
 @Repository
 public interface ScreeningRepository extends JpaRepository<Screening, Long> {
 
-    List<Screening> findByTitle(String title);
-
     List<Screening> findByDateGreaterThan(LocalDateTime time);
+
 }

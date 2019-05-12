@@ -17,6 +17,7 @@ public class ScreeningRoom implements Cloneable {
     private Cinema cinema;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "screeningRoom")
+    @OrderBy(value = "id ASC")
     private List<RowSeats> seats;
     private String name;
 

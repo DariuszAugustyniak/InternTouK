@@ -1,6 +1,5 @@
-package pl.intern.touk.internTouK.service;
+package pl.intern.touk.internTouK.converter;
 
-import org.springframework.util.StringUtils;
 import pl.intern.touk.internTouK.dto.RowDTO;
 import pl.intern.touk.internTouK.dto.SeatDTO;
 import pl.intern.touk.internTouK.model.RowSeats;
@@ -9,13 +8,12 @@ import pl.intern.touk.internTouK.model.Ticket;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public abstract class SeatConverter {
 
     public static SeatDTO toSeatDTO(Seat seat) {
         SeatDTO seatDTO = new SeatDTO();
-        if(seat.getTicket()!=null){
+        if (seat.getTicket() != null) {
             seatDTO.setName(seat.getTicket().getName());
             seatDTO.setPrice(seat.getTicket().getPrice());
             seatDTO.setSurname(seat.getTicket().getSurname());

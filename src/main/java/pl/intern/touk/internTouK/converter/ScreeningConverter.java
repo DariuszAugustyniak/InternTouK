@@ -1,4 +1,4 @@
-package pl.intern.touk.internTouK.service;
+package pl.intern.touk.internTouK.converter;
 
 import pl.intern.touk.internTouK.dto.ScreeningDTO;
 import pl.intern.touk.internTouK.model.Screening;

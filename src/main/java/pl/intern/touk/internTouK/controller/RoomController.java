@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pl.intern.touk.internTouK.dto.RoomDTO;
 import pl.intern.touk.internTouK.repository.RoomRepository;
-import pl.intern.touk.internTouK.service.RoomConverter;
+import pl.intern.touk.internTouK.converter.RoomConverter;
 
 import java.util.Collection;
 

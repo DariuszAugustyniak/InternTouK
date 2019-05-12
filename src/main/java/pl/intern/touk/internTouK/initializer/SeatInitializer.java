@@ -12,18 +12,4 @@ public class SeatInitializer {
         return seat;
     }
 
-    public static Seat createReservedSeat(Ticket ticket) {
-        Seat seat = new Seat();
-        seat.setSeatState(SeatState.REASERVED);
-        seat.setTicket(ticket);
-        return seat;
-    }
-
-    public static Seat createSoldSeat(Ticket ticket) {
-        Seat seat = new Seat();
-        seat.setSeatState(SeatState.SOLD);
-        seat.setTicket(ticket);
-        return seat;
-    }
-
 }

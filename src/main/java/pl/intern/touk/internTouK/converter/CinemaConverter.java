@@ -1,4 +1,4 @@
-package pl.intern.touk.internTouK.service;
+package pl.intern.touk.internTouK.converter;
 
 import pl.intern.touk.internTouK.dto.CinemaDTO;
 import pl.intern.touk.internTouK.model.Cinema;

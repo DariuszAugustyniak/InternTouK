@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pl.intern.touk.internTouK.dto.CinemaDTO;
 import pl.intern.touk.internTouK.repository.CinemaRepository;
-import pl.intern.touk.internTouK.service.CinemaConverter;
+import pl.intern.touk.internTouK.converter.CinemaConverter;
 
 @RestController
 @RequestMapping("/cinema")
@@ -18,7 +18,7 @@ public class CinemaController {
 
     @GetMapping("/{name}")
     CinemaDTO getCinema(@PathVariable String name) {
-        CinemaDTO cinemaDTO =CinemaConverter.toCinemaDTO(cinemaRepository.findById(name).get());
+        CinemaDTO cinemaDTO = CinemaConverter.toCinemaDTO(cinemaRepository.findById(name).get());
         return cinemaDTO;
     }
 

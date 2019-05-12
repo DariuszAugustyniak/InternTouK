@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class RowSeats implements Cloneable{
+public class RowSeats implements Cloneable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -12,10 +12,9 @@ public class RowSeats implements Cloneable{
     @ManyToOne()
     @JoinColumn(name = "ROOM_ID")
     private ScreeningRoom screeningRoom;
-
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "rowSeats")
+    @OrderBy(value = "id ASC")
     private List<Seat> row;
-
 
 
     public Long getId() {

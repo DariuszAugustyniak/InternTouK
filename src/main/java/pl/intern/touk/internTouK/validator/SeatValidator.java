@@ -15,9 +15,7 @@ public class SeatValidator implements ConstraintValidator<SeatConstraint, SeatRe
     @Autowired
     ScreeningRepository screeningRepository;
 
-    public void initialize(NameValidator constraintAnnotation) {
 
-    }
 
     @Override
     public boolean isValid(SeatRequest seatRequest, ConstraintValidatorContext constraintValidatorContext) {
@@ -30,7 +28,7 @@ public class SeatValidator implements ConstraintValidator<SeatConstraint, SeatRe
         int index = rowSeats.getRow().indexOf(seat);
         if (index - 2 >= 0) {
             if (SeatState.FREE.compareTo(rowSeats.getRow().get(index - 1).getSeatState()) == 0) {
-                if (!(SeatState.FREE.compareTo(rowSeats.getRow().get(index - 2).getSeatState()) == 0)) {
+                if ((SeatState.FREE.compareTo(rowSeats.getRow().get(index - 2).getSeatState()) != 0)) {
                     return false;
                 }
             }

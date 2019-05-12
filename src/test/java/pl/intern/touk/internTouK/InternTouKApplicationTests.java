@@ -1,4 +1,4 @@
-package pl.intern.touk.InternTouK;
+package pl.intern.touk.internTouK;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
